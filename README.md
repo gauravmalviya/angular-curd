@@ -1,7 +1,7 @@
 # angular-curd
 
 
-## Backend Test
+## Backend WebAPI
 
 Create a MVC WebApi application with Entity Framework (code first) with the following endpoints
 GET /books - get all books
@@ -23,7 +23,7 @@ authors: string[]
 
 
 
-##  Front end test:
+##  Front end Angular:
 
 Create a simple Angular2/4/5/6 application with two pages:
 a. List of books sorted by book names (asc), 5 items on pages + paging
