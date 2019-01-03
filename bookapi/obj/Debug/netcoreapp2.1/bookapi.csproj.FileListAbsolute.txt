@@ -1,0 +1,14 @@
+D:\Upwork\PanXpan\angular-curd\bookapi\bin\Debug\netcoreapp2.1\bookapi.deps.json
+D:\Upwork\PanXpan\angular-curd\bookapi\bin\Debug\netcoreapp2.1\bookapi.runtimeconfig.json
+D:\Upwork\PanXpan\angular-curd\bookapi\bin\Debug\netcoreapp2.1\bookapi.runtimeconfig.dev.json
+D:\Upwork\PanXpan\angular-curd\bookapi\bin\Debug\netcoreapp2.1\bookapi.dll
+D:\Upwork\PanXpan\angular-curd\bookapi\bin\Debug\netcoreapp2.1\bookapi.pdb
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.csprojAssemblyReference.cache
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.csproj.CoreCompileInputs.cache
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.RazorAssemblyInfo.cache
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.RazorAssemblyInfo.cs
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.AssemblyInfoInputs.cache
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.AssemblyInfo.cs
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.RazorTargetAssemblyInfo.cache
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.dll
+D:\Upwork\PanXpan\angular-curd\bookapi\obj\Debug\netcoreapp2.1\bookapi.pdb
