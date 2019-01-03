@@ -1,0 +1,114 @@
+<div class="page-title">
+  <div class="row">
+    <div class="col-sm-6">
+      <h4 class="mb-0"> Books</h4>
+    </div>
+    <div class="col-sm-6">     
+    </div>
+  </div>
+</div>
+<!-- main body -->
+<div *ngIf="updateMode"  class="row">
+    <div class="col-xl-12 mb-30">
+      <div class="card card-statistics h-100">
+        <div class="card-body">
+          <h5 class="card-title">Employee</h5>
+          <form #societyForm="ngForm" (submit)="saveBook()">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Name</label>
+                  <input type="text" class="web form-control" [(ngModel)]="selectedBook.name" placeholder="Name" name="name">
+                </div>
+
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputEmail4">Designation</label>
+                      <input type="text" class="web form-control" [(ngModel)]="selectedBook.designation" placeholder="Designation" name="designation">
+                  </div>
+
+            </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputEmail4">Address</label>
+                      <input type="text" class="web form-control" [(ngModel)]="selectedBook.address" placeholder="Address" name="address">
+                  </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Mobile</label>
+                    <input type="text" class="web form-control" [(ngModel)]="selectedBook.mobile" placeholder="Mobile" name="mobile">
+                </div>
+
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputEmail4">Phone</label>
+                  <input type="text" class="web form-control" [(ngModel)]="selectedBook.phone" placeholder="Phone" name="phone">
+              </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Salary</label>
+                <input type="text" class="web form-control" [(ngModel)]="selectedBook.salary" placeholder="Salary" name="salary">
+            </div>
+
+      </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputDescription">Description</label>
+                <input type="text" class="web form-control" [(ngModel)]="selectedBook.description" placeholder="Description" name="description">
+              </div>
+
+
+            </div>
+              <button class="btn btn-primary" type="submit" >Save</button>
+              <button class="btn" (click)="cancelOnClick()" type="button">Cancel</button>
+            </form>
+
+
+        </div>
+      </div>
+    </div>
+</div>
+<div *ngIf="!updateMode" class="row">
+    <div class="col-xl-12 mb-30">
+      <div class="card card-statistics h-100">
+        <div class="card-body">
+            <button type="button" (click)="addnewOnClick()" class="btn btn-success btn-sm mr-2 pull-right"><i class="fa fa-plus mr-1"></i>Add New</button>
+
+          <div class="table-responsive">
+            <table class="table center-aligned-table mb-0">
+              <thead><tr class="text-dark">
+                <th>Designation</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Phone</th>
+
+                <th>Action</th>
+              </tr></thead>
+              <tbody>
+                <tr *ngFor="let item of listEmployees">
+                  <td>{{item.designation}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.address}}</td>
+                  <td>{{item.mobile}}</td>
+                  <td>{{item.phone}}</td>
+
+                  <td>
+                    <button type="button" (click)="editSocietyEmployees(item)" class="btn btn-success btn-sm mr-2"><i class="fa fa-edit"></i>Edit</button>
+                    <button type="button" (click)="deleteSocietyEmployee(item)" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>Delete</button>
+                  </td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
