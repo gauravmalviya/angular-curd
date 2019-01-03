@@ -5,23 +5,23 @@ import { BookModel } from '../_models/bookmodel';
 @Injectable()
 export class BookService {
     constructor(private http: HttpClient) { }
-    baseUrl = 'http://localhost:6550/api/book/';
+    baseUrl = 'http://localhost:5000/api/book/';
 
 
     getAllBooks() {
-        return this.http.get<BookModel[]>(this.baseUrl + 'books/');
+        return this.http.get<BookModel[]>(this.baseUrl);
     }
-    getBook(bookId) {
-        return this.http.get<BookModel>(this.baseUrl + 'book/' + bookId);
+    getBook(id) {
+        return this.http.get<BookModel>(this.baseUrl + id);
     }
     saveBook(model: any) {
-        return this.http.post(this.baseUrl + 'book/' + model.bookId, model);
+        return this.http.post(this.baseUrl, model);
     }
     updateBook(model: any) {
-        return this.http.patch(this.baseUrl + 'book/' + model.bookId, model);
+        return this.http.patch(this.baseUrl + model.id, model);
     }
     deleteBook(model: any) {
-        return this.http.delete(this.baseUrl + 'book/' + model.bookId, model);
+        return this.http.delete(this.baseUrl + model.id);
     }
 
 }

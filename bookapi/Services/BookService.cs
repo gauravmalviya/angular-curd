@@ -43,7 +43,7 @@ namespace bookapi.Services
             oBook.Id = bookId;
             oBook.Name = inputData.Name;
             oBook.NumberOfPages = inputData.NumberOfPages;
-            oBook.CreateDate = DateTime.UtcNow;
+            oBook.CreateDate = UnixTimeNow(DateTime.UtcNow);
             oBook.DateOfPublication = inputData.DateOfPublication;
             oBook.IsDeleted = false;
             _context.Books.Add(oBook);
@@ -73,7 +73,7 @@ namespace bookapi.Services
             oBook.Id = bookId;
             oBook.Name = inputData.Name;
             oBook.NumberOfPages = inputData.NumberOfPages;
-            oBook.UpdateDate = DateTime.UtcNow;
+            oBook.UpdateDate = UnixTimeNow(DateTime.UtcNow);
             oBook.DateOfPublication = inputData.DateOfPublication;
             oBook.IsDeleted = false;
             Author oAuthor;
@@ -89,20 +89,47 @@ namespace bookapi.Services
             return oBook.Id;
         }
 
-        public async Task<int> DeleteBook(string id)
+        public async Task<int?> DeleteBook(string id)
         {
-            bool retVal = true;
             Data.Entities.Book _book = await _context.Books.FirstOrDefaultAsync(x => x.Id.ToLower() == id.ToLower());
             if (_book == null)
             {
-                return 0;
+                return null;
             }
 
             _book.IsDeleted = true;
-            _book.UpdateDate = DateTime.UtcNow;
+            _book.UpdateDate = UnixTimeNow(DateTime.UtcNow);
             var result = await _context.SaveChangesAsync();
 
             return result;
+        }
+
+        //Common method 
+        public long? UnixTimeNow(DateTime? _date)
+        {
+            DateTime _inputValue = DateTime.UtcNow;
+            if(_date!=null)
+            {
+                _inputValue = (DateTime) _date;
+                var timeSpan = (_inputValue - new DateTime(1970, 1, 1, 0, 0, 0));
+                return (long)timeSpan.TotalSeconds;
+            }
+            else 
+            {
+                return null;
+            }
+        }
+        public DateTime? UnixTimeNowDateTime(long? _timestamp)
+        {
+            long _inputValue = 0;
+            if(_timestamp!=null)
+            { 
+                _inputValue = (long)_timestamp;
+                var NewDate = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(Math.Round(_inputValue / 1000d)).ToLocalTime();            
+                return NewDate;
+            }else{
+                return null;
+            }
         }
     }
 }

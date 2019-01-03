@@ -45,6 +45,7 @@ namespace bookapi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] BookViewModel value)
         {
+            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             var result = await _bookService.SaveBook(value);
             return Ok(new { result = "SUCCESS", data = result });
         }

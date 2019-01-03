@@ -12,7 +12,7 @@ namespace bookapi.ViewModels
         public string Id { get; set; } // guid
         public string Name { get; set; }
         public int? NumberOfPages { get; set; }
-        public DateTime? DateOfPublication { get; set; }// utc timestamp        
+        public long? DateOfPublication { get; set; }// utc timestamp        
         public string[] Authors { get; set; }
 
 

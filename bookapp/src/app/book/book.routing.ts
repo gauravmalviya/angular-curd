@@ -4,7 +4,7 @@ import { BookComponent } from './book.component';
 
 export const BookRoutes: Routes = [
   {
-    path: 'book',
+    path: '',
     children: [
       {
         path: '',
@@ -12,7 +12,7 @@ export const BookRoutes: Routes = [
         data: {
           title: 'Book',
           urls: [
-            { title: 'Book', url: '/books' },
+            { title: 'Book', url: '/book' },
             { title: 'Book' }
           ]
         }

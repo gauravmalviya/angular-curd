@@ -10,6 +10,6 @@ namespace bookapi.ServiceContracts
         Task<BookViewModel> GetBook(string id);
         Task<string> SaveBook(BookViewModel inputData);
         Task<string> UpdateBook(string id, BookViewModel inputData);
-        Task<int> DeleteBook(string id);
+        Task<int?> DeleteBook(string id);
     }
 }

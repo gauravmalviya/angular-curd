@@ -6,7 +6,6 @@ import { BookComponent } from './book/book.component';
 export const Approutes: Routes = [
     {
       path: '',
-      runGuardsAndResolvers: 'always',
       children: [
         {
           path: 'book',

@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bookapi.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,10 +12,10 @@ namespace bookapi.Data.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    NumberOfPages = table.Column<int>(nullable: false),
-                    DateOfPublication = table.Column<DateTime>(nullable: false),
-                    CreateDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
+                    NumberOfPages = table.Column<int>(nullable: true),
+                    DateOfPublication = table.Column<long>(nullable: true),
+                    CreateDate = table.Column<long>(nullable: true),
+                    UpdateDate = table.Column<long>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>

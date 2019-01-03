@@ -40,9 +40,9 @@ namespace bookapi.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("CreateDate");
+                    b.Property<long?>("CreateDate");
 
-                    b.Property<DateTime?>("DateOfPublication");
+                    b.Property<long?>("DateOfPublication");
 
                     b.Property<bool?>("IsDeleted");
 
@@ -50,7 +50,7 @@ namespace bookapi.Data.Migrations
 
                     b.Property<int?>("NumberOfPages");
 
-                    b.Property<DateTime?>("UpdateDate");
+                    b.Property<long?>("UpdateDate");
 
                     b.HasKey("Id");
 

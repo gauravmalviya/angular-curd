@@ -1,5 +1,5 @@
 export interface BookModel {
-    bookId: number;
+    id: number;
     name: string;
     authers: string[];
     numberOfPages: number;

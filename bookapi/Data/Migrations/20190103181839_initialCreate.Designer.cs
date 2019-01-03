@@ -10,8 +10,8 @@ using bookapi.Data;
 namespace bookapi.Data.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20190103114030_Initial")]
-    partial class Initial
+    [Migration("20190103181839_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,17 +42,17 @@ namespace bookapi.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("CreateDate");
+                    b.Property<long?>("CreateDate");
 
-                    b.Property<DateTime>("DateOfPublication");
+                    b.Property<long?>("DateOfPublication");
 
                     b.Property<bool?>("IsDeleted");
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("NumberOfPages");
+                    b.Property<int?>("NumberOfPages");
 
-                    b.Property<DateTime?>("UpdateDate");
+                    b.Property<long?>("UpdateDate");
 
                     b.HasKey("Id");
 
