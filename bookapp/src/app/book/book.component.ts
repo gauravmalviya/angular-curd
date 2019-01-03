@@ -36,8 +36,6 @@ export class BookComponent implements OnInit {
       this.selectedBook = Object.assign({}, result);
     });
   }
- 
-
   saveBook() {
     if (this.selectedBook.bookId > 0) {
       this._book.updateBook(this.selectedBook)
