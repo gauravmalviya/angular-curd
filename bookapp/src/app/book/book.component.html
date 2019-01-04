@@ -1,3 +1,4 @@
+
 <div class="page-title">
   <div class="row">
     <div class="col-sm-6">
@@ -55,15 +56,21 @@
           <div class="table-responsive">
             <table class="table center-aligned-table mb-0">
               <thead><tr class="text-dark">
-                <th>Name</th>
-                <th>Number Of Pages</th>
-                <th>Date Of Publication</th>
+                <th (click)="sort('name')">Name
+                    <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th (click)="sort('numberOfPages')">Number Of Pages
+                    <span class="glyphicon sort-icon" *ngIf="key =='numberOfPages'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th (click)="sort('dateOfPublication')">Date Of Publication
+                    <span class="glyphicon sort-icon" *ngIf="key =='dateOfPublication'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
                 <th>Authors</th>
 
                 <th>Action</th>
               </tr></thead>
               <tbody>
-                <tr *ngFor="let item of listBooks">
+                <tr *ngFor="let item of listBooks | orderBy: key : reverse | slice: (currentPage-1)*pageSize:pageSize*currentPage"> 
                   <td>{{item.name}}</td>
                   <td>{{item.numberOfPages}}</td>
                   <td>{{item.dateOfPublication * 1000 | date:'yyyy-MM-dd'}}</td>
@@ -76,10 +83,17 @@
               </tbody>
             </table>
           </div>
+          
+          <pagination [totalItems]="totalItems" [itemsPerPage]="pageSize" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" ></pagination>
+          <pre><span class="float-md-left">Total Books: {{ totalItems }}</span></pre>
         </div>
-      </div>
+      </div>  
     </div>
 </div>
+
+
+
+
 
 
 

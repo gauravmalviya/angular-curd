@@ -15,8 +15,25 @@ export class BookComponent implements OnInit {
   updateMode: any = false as boolean;
   autherList: any = [] as AuthorModel[];
 
+
+  currentPage = 1;
+  totalItems = 0;
+  pageSize = 2;
+
   constructor(private _book: BookService) {
 
+  }
+
+  // sorting
+  key: string = 'name'; //set default
+  reverse: boolean = false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
+  pageChanged(event: any): void {
+    this.currentPage = event.page;
   }
 
   ngOnInit() {
@@ -30,6 +47,7 @@ export class BookComponent implements OnInit {
     .subscribe((result: any) => {
       console.log(result);
       this.listBooks = result.data;
+      this.totalItems = this.listBooks.length;
       console.log(this.listBooks);
     });
   }
