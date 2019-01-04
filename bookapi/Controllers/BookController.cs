@@ -50,9 +50,9 @@ namespace bookapi.Controllers
             return Ok(new { result = "SUCCESS", data = result });
         }
 
-        // PUT api/Book/5
+        // Patch api/Book/5
         [HttpPatch("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] BookViewModel inputData)
+        public async Task<IActionResult> Patch(string id, [FromBody] BookViewModel inputData)
         {
             var _oBook = await _bookService.GetBook(id);
             if (_oBook == null)
@@ -61,6 +61,20 @@ namespace bookapi.Controllers
             {
                 inputData.Patch(_oBook);
                 await _bookService.UpdateBook(id, _oBook);
+                return Ok(new { result = "SUCCESS", data = id });
+            }
+        }
+
+        // Patch api/Book/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, [FromBody] BookViewModel inputData)
+        {
+            var _oBook = await _bookService.GetBook(id);
+            if (_oBook == null)
+                return NotFound(new { result = "NOTFOUND" });
+            else
+            {
+                await _bookService.UpdateBook(id, inputData);
                 return Ok(new { result = "SUCCESS", data = id });
             }
         }
